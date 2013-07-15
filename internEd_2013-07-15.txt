@@ -1,0 +1,78 @@
+Description: Write a bash script that obtains a file from the internet located at www.textfiles.com/humor/taglines/text.txt, counts the number of lines in the file and outputs "Hi" to stderr when the number of lines mod 101 is equal to 0. Then output the number of lines to stdout. Remove the file that was obtained from the internet and place a file that contains the stderr information to 130.127.5.66 using the username "storage" and the password "intern". Please name it <userID>_logFile.txt.
+
+Outcomes: Proficiency with wget, scp, loop structures, if statements, file i/o.
+
+
+*) How to use wget
+The following downloads the file(s) at <URL>... to the directory that the wget command is run in. If you are in your documents folder, then the wget will save the file to the documents folder. This also preserves their name.
+Single file: "wget <URL>"
+Multiple files: "wget <URL> <URL> ..."
+EX.
+[user@system:/home/Documents] wget www.test.com/text.txt
+...(some output)...
+[user@system:/home/Documents] ls
+...(otherfiles)...
+text.txt
+[user@system:/home/Documents]
+
+*) The following will download the file(s) at <URL>... to a single file at a specified location. If gettting multiple files, they are concatenated (combined) into one file.
+Single file: "wget -O <save_as> <URL>"
+Multiple files: "wget <save_as> <URL> <URL> ..."
+EX.
+[user@system:/home/Documents] wget -O /home/other/hi.txt www.test.com/text.txt 
+...(some output)...
+[user@system:/home/Documents] ls
+...(otherfiles)...
+[user@system:/home/Documents] ls /home/other
+...(otherfiles)...
+hi.txt
+[user@system:/home/Documents]
+
+
+*) File I/O
+You must use a "while" loop to gather the data and perform the counts that are being asked.
+EX.
+while read line
+do
+	echo $line
+done < file.txt
+The above example will output all the contents of the 'file.txt'
+
+There are 2 output streams, stdout and stderr, and you can control which one you send information.
+'1>' is a direct call to stdout, this can also be done by just using '>'.
+'2>' is a direct call to stderr.
+You can also use this when appending (adding onto to the end) of a file.
+'1>>' and '2>>'.
+EX.
+$information 1> file
+$error 2> file
+$information 1>> file
+$error 2>> file
+If the 'file' does not exist it will be created. Using '>' will erase the contents of 'file' and replace it with 'information' while '>>' will add 'error' to the end of 'file'.
+
+
+*) Math operations
+The modulo (mod) operator looks like '%'. It gives the remainder from a division operation.
+EX.
+5 / 3 = 1
+5 % 3 = 2
+3 goes into 5 only 1 time, the number left over from that operation is 2.
+13 / 5 = 2
+13 % 5 = 3
+5 goes into 13 only 2 times, the number left over from that operation is 3.
+
+The ++ operator adds one to a number. It is the same as x=x+1 and x+=1
+x=2
+x++
+x now equals 3.
+
+Use '(( variable = operation ))' for this script
+
+*) scp
+Used just like cp.
+scp <file_to_copy> <place_to_save>
+EX.
+scp user@system:/home/Documents/text.txt /home/Documents/
+# The above will save the remote file 'text.txt' to your local machine under the /home/Documents folder.
+scp /home/Documents/text.txt user@system:/home/Documents/ 
+# The above will save your local text.txt to the remote system under the /home/Documents folder.
