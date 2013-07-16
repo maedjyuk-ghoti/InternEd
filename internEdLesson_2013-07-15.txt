@@ -1,6 +1,6 @@
 Description: Write a bash script that obtains a file from the internet located at
 http://www.textfiles.com/100/914bbs.txt, counts the number of lines in the file and outputs "Hi" to stderr when
-the number of lines mod 101 is equal to 0. Then output the number of lines to stdout. Remove the file that was obtained
+the number of lines mod 11 is equal to 0. Then output the number of lines to stdout. Remove the file that was obtained
 from the internet and place a file that contains the stderr information to 130.127.5.66 using the username "storage"
 and the password "intern". Please name it <userID>_logFile.txt.
 
