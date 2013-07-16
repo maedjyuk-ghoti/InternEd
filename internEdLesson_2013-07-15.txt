@@ -1,10 +1,16 @@
-Description: Write a bash script that obtains a file from the internet located at http://www.textfiles.com/100/914bbs.txt, counts the number of lines in the file and outputs "Hi" to stderr when the number of lines mod 101 is equal to 0. Then output the number of lines to stdout. Remove the file that was obtained from the internet and place a file that contains the stderr information to 130.127.5.66 using the username "storage" and the password "intern". Please name it <userID>_logFile.txt.
+Description: Write a bash script that obtains a file from the internet located at
+http://www.textfiles.com/100/914bbs.txt, counts the number of lines in the file and outputs "Hi" to stderr when
+the number of lines mod 101 is equal to 0. Then output the number of lines to stdout. Remove the file that was obtained
+from the internet and place a file that contains the stderr information to 130.127.5.66 using the username "storage"
+and the password "intern". Please name it <userID>_logFile.txt.
 
 Outcomes: Proficiency with wget, scp, loop structures, if statements, file i/o.
 
 
 *) How to use wget
-The following downloads the file(s) at <URL>... to the directory that the wget command is run in. If you are in your documents folder, then the wget will save the file to the documents folder. This also preserves their name.
+The following downloads the file(s) at <URL>... to the directory that the wget command is run in.
+If you are in your documents folder, then the wget will save the file to the documents folder.
+This also preserves their name.
 Single file: "wget <URL>"
 Multiple files: "wget <URL> <URL> ..."
 EX.
@@ -15,7 +21,8 @@ EX.
 text.txt
 [user@system:/home/Documents]
 
-*) The following will download the file(s) at <URL>... to a single file at a specified location. If gettting multiple files, they are concatenated (combined) into one file.
+*) The following will download the file(s) at <URL>... to a single file at a specified location.
+If gettting multiple files, they are concatenated (combined) into one file.
 Single file: "wget -O <save_as> <URL>"
 Multiple files: "wget <save_as> <URL> <URL> ..."
 EX.
@@ -48,7 +55,8 @@ $information 1> file
 $error 2> file
 $information 1>> file
 $error 2>> file
-If the 'file' does not exist it will be created. Using '>' will erase the contents of 'file' and replace it with 'information' while '>>' will add 'error' to the end of 'file'.
+If the 'file' does not exist it will be created. Using '>' will erase the contents of 'file' and replace it with
+'information' while '>>' will add 'error' to the end of 'file'.
 
 
 *) Math operations
